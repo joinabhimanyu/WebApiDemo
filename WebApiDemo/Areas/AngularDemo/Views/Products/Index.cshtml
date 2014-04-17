@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="mainModule">
+<head>
+    <title>Windows Page</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width;initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="~/Areas/AngularDemo/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Areas/AngularDemo/content/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Areas/AngularDemo/content/windowStyle.css" />
+    <script type="text/javascript" src="~/Areas/AngularDemo/scripts/angular.js"></script>
+    <script type="text/javascript" src="~/Areas/AngularDemo/scripts/angular-route.js"></script>
+    <script type="text/javascript" src="~/Areas/AngularDemo/scripts/angular-animate.js"></script>   
+    <script type="text/javascript" src="~/Areas/AngularDemo/scripts/app.js"></script>
+    <script type="text/javascript" src="~/Areas/AngularDemo/scripts/jquery-1.10.2.min.js"></script>
+
+    
+</head>
+<body>
+
+
+    <div class="container" style="width:100%;">
+        <div class="row">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Microsoft</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#/view1">Windows</a></li>
+                            <li><a href="#/view2">XBOX</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            
+                    </div>
+                    <div class="page {{ pageClass }} animate row" data-ng-view="">
+                    </div>
+                </div>
+                              
+</body>
+</html>

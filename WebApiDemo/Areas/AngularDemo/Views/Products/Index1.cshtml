@@ -1,0 +1,173 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="module1">
+<head>
+<title>Directive Demo</title>
+<meta charset="utf-8" name="viewport" content="width=device-width;initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="~/Areas/AngularDemo/content/bootstrap.min.css"/>
+<style type="text/css">
+div.dir1 {
+ -webkit-transition: all 0.3s linear;
+   -moz-transition: all 0.3s linear;
+   -o-transition: all 0.3s linear;
+   -ms-transition: all 0.3s linear;
+   transition: all 0.3s linear;
+}
+
+div.dir1:hover {
+box-shadow: inset 4px 4px 4px rgba(0,0,0,0.075),4px 4px 8px rgba(102,175,233,0.6);
+}
+
+</style>
+    <script src="~/Areas/AngularDemo/scripts/angular.js"></script>
+    <script src="~/Areas/AngularDemo/scripts/angular-route.js"></script>
+    @*<script src="~/Areas/AngularDemo/scripts/bootstrap.min.js"></script>*@
+    <script src="~/Areas/AngularDemo/scripts/jquery-1.10.2.min.js"></script>
+    
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var module1 = angular.module("module1", []);
+
+    module1.controller("controller1", function ($scope, customerFactory) {
+
+        $scope.fieldColor = {
+            color: "pink",
+            text: "Hello World"
+        };
+
+        $scope.customers = customerFactory.getCustomers();
+
+        $scope.addCustomer = function () {
+            customerFactory.addCustomers($scope.newCustomer.name, $scope.newCustomer.city);
+            $scope.newCustomer.name = "";
+            $scope.newCustomer.city = "";
+        }
+
+        $scope.deleteCustomer = function (id) {
+            customerFactory.deleteCustomer(id);
+        }
+
+    });
+
+    module1.directive("helloWorld", function () {
+        return {
+            scope: {
+                color: '=',
+                text: '='
+            },
+            restrict: 'EA',
+            replace: false,
+            transclude: false,
+            template: '<h3 style="cursor:pointer;background:{{color}};padding-top:4px;padding-left:10px;padding-bottom:4px;">{{text}}</h3>',
+            link: function (scope, elem, attrs) {
+                elem.bind("click", function () {
+
+                    elem.css("background", "azure");
+                    scope.$apply(function () {
+                        scope.color = "azure";
+
+                    });
+                });
+                elem.bind("mouseenter", function () {
+                    elem.css("color", "brown");
+                    elem.css("text-shadow", "1px 1px 4px #FFFFFF");
+                });
+                elem.bind("mouseleave", function () {
+                    elem.css("color", "black");
+                    elem.css("text-shadow", "");
+                });
+            }
+        };
+    });
+
+    module1.factory("customerFactory", function () {
+
+        var factory = {};
+        var customers = [
+            { id: 1, name: 'John', city: 'Kansas' },
+            { id: 2, name: 'Max', city: 'N.Y' },
+            { id: 3, name: 'Alton', city: 'Illinois' },
+            { id: 4, name: 'Ben', city: 'Mexico' }
+        ];
+        factory.getCustomers = function () {
+            return customers;
+        }
+
+        factory.addCustomers = function (name, city) {
+            var topID = customers.length + 1;
+            customers.push({
+                id: topID,
+                name: name,
+                city: city
+            });
+        }
+
+        factory.deleteCustomer = function (id) {
+            for (var i = customers.length - 1; i >= 0 ; i--) {
+                if (customers[i].id === id) {
+                    customers.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+        return factory;
+    });
+
+
+</script>
+
+<div class="container">
+<div class="row">
+<div data-ng-controller="controller1">
+Enter Color:<input type="text" data-ng-model="fieldColor.color"/>
+    Enter Text:<input type="text" data-ng-model="fieldColor.text" />
+<label>{{fieldColor.color | uppercase}}</label>
+<div class="dir1" data-hello-world color="fieldColor.color" text="fieldColor.text"></div>
+
+<div class="row" style="margin-top:10px;">
+<div style="display:inline;">
+<input type="text" data-ng-model="custName"/>
+Add Customer Name:<input type="text" data-ng-model="newCustomer.name"/>
+City:<input type="text" data-ng-model="newCustomer.city"/>
+<button data-ng-click="addCustomer()">Add Customer</button>
+</div>
+<table class="table table-bordered" style="margin-top:10px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="cust in customers | filter: custName | orderBy: 'name'">
+            <td>
+                {{cust.name | uppercase}}
+            </td>
+            <td>
+                {{cust.city | uppercase}}
+            </td>
+            <td>
+                <button class="btn btn-default" data-ng-click="deleteCustomer(cust.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>
+    <div class="">
+
+    </div>
+</div>
+
+</body>
+</html>
