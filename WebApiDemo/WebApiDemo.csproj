@@ -45,6 +45,8 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -148,71 +150,56 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\AngularDemo\AngularDemoAreaRegistration.cs" />
-    <Compile Include="Areas\AngularDemo\Controllers\ProductsController.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Areas\MoviesList\App_Start\MoviesListConfig.cs" />
-    <Compile Include="Areas\MoviesList\Controllers\MoviesController.cs" />
-    <Compile Include="Areas\MoviesList\MoviesListAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\WindowsController.cs" />
-    <Compile Include="Controllers\XboxController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\MoviesDBContext.cs" />
-    <Compile Include="Models\Window.cs" />
-    <Compile Include="Models\WindowsDBContext.cs" />
-    <Compile Include="Models\Xbox.cs" />
-    <Compile Include="Models\XboxDBContext.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthwindModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthwindModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthwindModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Detail.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipper.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.sdf" />
-    <Content Include="Areas\AngularDemo\app\controllers\controllers.js" />
+    <Content Include="App_Data\Northwind.sdf" />
     <Content Include="Areas\AngularDemo\app\directives\directive1.js" />
-    <Content Include="Areas\AngularDemo\app\directives\pagination.html" />
     <Content Include="Areas\AngularDemo\app\directives\pagination.js" />
-    <Content Include="Areas\AngularDemo\app\directives\xuiTable.html" />
     <Content Include="Areas\AngularDemo\app\directives\xuiTable.js" />
-    <Content Include="Areas\AngularDemo\app\partials\windowsDetails.htm" />
-    <Content Include="Areas\AngularDemo\app\partials\windowsView.htm" />
-    <Content Include="Areas\AngularDemo\app\partials\xboxDetails.htm" />
-    <Content Include="Areas\AngularDemo\app\partials\xboxView.htm" />
     <Content Include="Areas\AngularDemo\content\bootstrap.min.css" />
-    <Content Include="Areas\AngularDemo\content\style.css" />
-    <Content Include="Areas\AngularDemo\content\windowStyle.css" />
-    <Content Include="Areas\AngularDemo\Images\windows1.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows2.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows3.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows4.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows5.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows6.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows7.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows8.jpg" />
-    <Content Include="Areas\AngularDemo\Images\windows9.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox1.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox2.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox3.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox4.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox5.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox6.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox7.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox8.jpg" />
-    <Content Include="Areas\AngularDemo\Images\xbox9.jpg" />
     <Content Include="Areas\AngularDemo\scripts\angular-animate.js" />
     <Content Include="Areas\AngularDemo\scripts\angular-route.js" />
     <Content Include="Areas\AngularDemo\scripts\angular.js" />
@@ -222,7 +209,6 @@
     <Content Include="Areas\AngularDemo\Views\Products\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -280,21 +266,24 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Areas\MoviesList\Views\Web.config" />
-    <Content Include="Areas\MoviesList\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\MoviesList\Views\Movies\Index.cshtml" />
     <Content Include="Areas\AngularDemo\Views\Web.config" />
+    <EntityDeploy Include="Models\NorthwindModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NorthwindModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NorthwindModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindModel.edmx</DependentUpon>
+      <LastGenOutput>NorthwindModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NorthwindModel.edmx.diagram">
+      <DependentUpon>NorthwindModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\NorthwindModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindModel.edmx</DependentUpon>
+      <LastGenOutput>NorthwindModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -319,7 +308,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -337,18 +325,24 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\AngularDemo\app\controllers\" />
     <Folder Include="Areas\AngularDemo\app\factories\" />
+    <Folder Include="Areas\AngularDemo\app\partials\" />
+    <Folder Include="Areas\AngularDemo\Controllers\" />
+    <Folder Include="Areas\AngularDemo\Images\" />
     <Folder Include="Areas\AngularDemo\Models\" />
     <Folder Include="Areas\AngularDemo\Views\Shared\" />
-    <Folder Include="Areas\MoviesList\Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

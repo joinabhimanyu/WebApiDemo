@@ -17,9 +17,7 @@ namespace WebApiDemo
     {
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.CreateDatabaseIfNotExists<WebApiDemo.Models.MoviesDBContext>());
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.CreateDatabaseIfNotExists<WebApiDemo.Models.WindowsDBContext>());
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.CreateDatabaseIfNotExists<WebApiDemo.Models.XboxDBContext>());
+
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
